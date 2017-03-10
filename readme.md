@@ -1,9 +1,6 @@
 # Service Fabric Logging
 
-Logging, while straight forward (to me anyway), can often require composing various bits together to produce the "right setup"; in this case Service Fabric and Stateless/Stateful Service logging. Today
-there seems to be a lot of "adapting" that must be done to hook into the logging APIs exposed in the different platforms. 
-
-This example aims to demonstrate one way hooking things up. My intention is to jog your mind toward laying out a full fledged implementation of your own.
+Today there seems to be a lot of "adapting" that must be done to hook into the logging APIs exposed in the different platforms. Logging, while straight forward (to me anyway), can often require composing various bits together to produce the "right setup"; in this case Service Fabric and Stateless/Stateful Service logging. This example aims to demonstrate one way hooking things up. My intention is to jog your mind toward laying out a full fledged implementation of your own.
 
 ## Components Overview
 * ServiceFabric (Service Fabric Service)
