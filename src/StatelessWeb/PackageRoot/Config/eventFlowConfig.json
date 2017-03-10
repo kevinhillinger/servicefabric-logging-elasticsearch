@@ -1,0 +1,38 @@
+﻿{ //docs: https://github.com/Azure/diagnostics-eventflow
+  "inputs": [
+    {
+      "type": "EventSource",
+      "sources": [
+        //{
+
+        //  "providerName": "Microsoft-ServiceFabric-Services",
+        //  "level": "Warning"
+        //}
+       // { "providerName": "MyCompany-ServiceFabricLogging2-StatelessWeb" } // (replace the following value with your service's ServiceEventSource name)
+      ]
+    },
+    {
+      "type": "Serilog"
+    }
+  ],
+  "filters": [
+    {
+      "type": "drop",
+      "include": "Level == Verbose"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "StdOutput"
+    },
+    {
+      "type": "ElasticSearch",
+      "indexNamePrefix": "statelessweb-",
+      "serviceUri": "http://kchloggingsf091701.southcentralus.cloudapp.azure.com:9200",
+      "basicAuthenticationUserName": "hillingk",
+      "basicAuthenticationPassword": "Apple11kawai",
+      "eventDocumentTypeName": "diagData"
+    }
+  ],
+  "schemaVersion": "2016-08-11"
+}
