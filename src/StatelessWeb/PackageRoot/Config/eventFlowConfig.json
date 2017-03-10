@@ -27,10 +27,11 @@
     },
     {
       "type": "ElasticSearch",
+      // change the index name as needed
       "indexNamePrefix": "statelessweb-",
-      "serviceUri": "http://kchloggingsf091701.southcentralus.cloudapp.azure.com:9200",
-      "basicAuthenticationUserName": "hillingk",
-      "basicAuthenticationPassword": "Apple11kawai",
+      "serviceUri": "http://[vm_dns_name].[region_location].cloudapp.azure.com:9200",
+      "basicAuthenticationUserName": "[username]",
+      "basicAuthenticationPassword": "[password]",
       "eventDocumentTypeName": "diagData"
     }
   ],
