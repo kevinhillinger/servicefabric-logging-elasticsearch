@@ -1,10 +1,9 @@
 # Service Fabric Logging
 
-Logging, while often straight forward, can often require composing various bits together to produce the "right setup"; in this case Service Fabric and Stateless/Stateful Service logging. Today
+Logging, while straight forward (to me anyway), can often require composing various bits together to produce the "right setup"; in this case Service Fabric and Stateless/Stateful Service logging. Today
 there seems to be a lot of "adapting" that must be done to hook into the logging APIs exposed in the different platforms. 
 
-This example aims to demonstrate at least one way to do this. It's not the only way, but my intention is to jog your mind to layout a full fledged implementation of logging 
-in Service Fabric Stateful or Statless Services.
+This example aims to demonstrate one way hooking things up. My intention is to jog your mind toward laying out a full fledged implementation of your own.
 
 ## Components Overview
 * ServiceFabric (Service Fabric Service)
@@ -15,7 +14,7 @@ in Service Fabric Stateful or Statless Services.
 
 # Overview
 
-The "root" for the logging is Serilog. I chose Serilog because of the following tradeoffs:
+The "root" for the logging is Serilog. I chose Serilog because of the following:
 
 * Decouple logging from ASP.NET Core 
 * Flexible enrichment capabilities
@@ -68,3 +67,5 @@ But given we're trying to capture all HTTP requests going through it, Serilog is
 * Logs all HTTP requests (any verb) including the request/response payload
 * Logs exceptions occuring in _any_ controller
 * Centralizes the hook into handling exceptions and setting the appropriate status code: 403, 404, 500, etc.
+
+> Credit to [Nicholas Blumhardt's](https://nblumhardt.com/) [post for Seq](http://blog.getseq.net/smart-logging-middleware-for-asp-net-core/) on the Middleware groundwork it laid for me.
